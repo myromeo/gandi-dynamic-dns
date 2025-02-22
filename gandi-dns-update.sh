@@ -6,7 +6,7 @@ GANDI_TOKEN=$(grep gandi_api_token /config/secrets.yaml | cut -d ' ' -f2)
 # Set domain and subdomain details
 DOMAIN="YOUR_DOMAIN"
 SUBDOMAIN="YOUR_SUBDOMAIN"
-TTL=YOUR_TTL
+TTL=10800
 IPLOOKUP="http://whatismyip.akamai.com/"
 LOG_FILE="/config/gandi-dns-update.log"
 
