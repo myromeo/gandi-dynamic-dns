@@ -43,6 +43,8 @@ For security reasons, we’ll store the Gandi API token in Home Assistant’s `s
 
 This script fetches your current IP address and updates the A record in Gandi’s DNS service.
 
+You can create these via terminal or an addon such as file editor. I recommend file editor for ease.
+
 #### Steps:
 1. **Create the Script File:**
    - Go to your Home Assistant's `config` directory.
@@ -56,7 +58,7 @@ This script fetches your current IP address and updates the A record in Gandi’
      ```
 
 2. **Copy the Script:**
-   Open `update_gandi_dns.sh` in a text editor and edit the domain and subdomain lines:
+   Download and Open `update_gandi_dns.sh` in a text editor and edit the domain and subdomain lines. Note domain should be your full domain, for instance example.com. Subdomain should only be the subdomain, for instance sub.example.com you need to enter only sub :
 
    ```bash
    # Set your domain and subdomain
@@ -88,7 +90,7 @@ shell_command:
 
 #### 2. **Create the Automation:**
 
-You can set up the automation to trigger the script either periodically. Change the duration to suit.
+You can set up the automation to trigger the script either periodically or on IP change. Change the duration to suit.
 
 ```yaml
 alias: Update Gandi DNS
@@ -123,6 +125,7 @@ After restarting, check the following:
    Run the shell command from the Home Assistant UI to verify it works:
    - Go to *Developer Tools* → *Actions*.
    - Select `shell_command.update_gandi_dns` and press *Perform Action*.
+   - The response should include 'returncode: 0'
 
 2. **Check Logs:**
    Check the log at `/config/gandi-dns-update.log` to verify updates to the DNS records.
